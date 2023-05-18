@@ -16,7 +16,7 @@ const startGame = async (chatId) => {
   );
   const randomNumber = Math.floor(Math.random() * 10);
   chats[chatId] = randomNumber;
-  await bot.sendMessage(chatId, `Отгадывай.. ${chats[chatId]}`, gameOptions);
+  await bot.sendMessage(chatId, `Отгадывай..`, gameOptions);
 };
 
 const start = async () => {
