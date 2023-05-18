@@ -84,19 +84,24 @@ const start = async () => {
     if (data === "/again") {
       return startGame(chatId);
     }
-    if (data === chats[chatId]) {
-      return bot.sendMessage(
+
+    const user = await UserModel.findOne({ chatId });
+    if (data == chats[chatId]) {
+      user.right += 1;
+      await bot.sendMessage(
         chatId,
         `Поздравляю, ты отгадал цифру ${chats[chatId]}`,
         againOptions
       );
     } else {
-      return bot.sendMessage(
+      user.wrong += 1;
+      await bot.sendMessage(
         chatId,
         `К сожалению ты не отгадал, бот загадал цифру ${chats[chatId]}`,
         againOptions
       );
     }
+    await user.save();
   });
 };
 
