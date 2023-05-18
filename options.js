@@ -17,6 +17,7 @@ module.exports = {
           { text: "8", callback_data: "8" },
           { text: "9", callback_data: "9" },
         ],
+        [{ text: "0", callback_data: "0" }],
       ],
     }),
   },

@@ -22,7 +22,6 @@ const startGame = async (chatId) => {
 const start = async () => {
   try {
     await sequelize.authenticate();
-    // await sequelize.drop;
     await sequelize.sync({ force: true });
   } catch (e) {
     console.log("Подключение к БД сломалось", e);
@@ -35,7 +34,6 @@ const start = async () => {
   ]);
 
   bot.on("message", async (msg) => {
-    // console.log(msg);
     const text = msg.text;
     const chatId = msg.chat.id;
 
